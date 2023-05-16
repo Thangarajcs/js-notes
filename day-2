@@ -46,6 +46,29 @@ console.log(name1);//milk
  console.log(name2);
  
  
+ 
+ 
+ //Datatype - what type of data u are storing
+
+//string - 'name' - ur name , address 
+//number - 122222222 = ex- phone number ,adhar num
+//boolean- true or false
+//object - {} group of related item
+//array - [] - collection related value
+
+let tyre = 'dddddd'
+let phnum = 1234568;
+let isTodayMonday = false;
+
+let student = {
+    name:'name',
+    color:'red',
+    owner:'sss'
+}
+
+let marks = [100,200,300,400]
+ 
+ 
  Hositing ----------------------------------------------------------------
 
             : moving declarations to the top.
