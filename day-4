@@ -113,6 +113,14 @@ Conditional (Ternary) Operator:
 () ? true : false
 
 
+practice:
+
+
+1.operator - https://www.w3schools.com/js/js_operators.asp
+2.switch https://www.w3schools.com/js/js_switch.asp
+
+
+
 // ternary operator assign the value to the variable based true or false condition
 
 
