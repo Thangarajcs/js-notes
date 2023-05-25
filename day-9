@@ -81,3 +81,5 @@ function myFunction() {
 let ans = myFunction('india')
 
 console.log(ans);
+
+link material: https://www.w3schools.com/js/js_functions.asp
