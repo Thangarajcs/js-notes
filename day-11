@@ -180,3 +180,18 @@ let ans = a.map(function(value,position,index){
 console.log('old mark',a);
 console.log('updated mark',ans);
 
+
+
+//practice question
+
+//1.for each
+// check every student has crossed the pass mark 
+// pass mark - 250
+// should print the passed student mark with postion 
+
+//2.map
+// check every student has crossed the pass mark 
+// pass mark - 250 (mark >= 250)  and + 50 
+// if no then - 10
+//if they croseed 250 add 50 marks extra other  wise reduce 10 mark
+
