@@ -1,0 +1,54 @@
+EVENTS:
+
+keypress
+
+click
+load
+
+pageload:
+
+In HTML how to add events attr:
+event attribute: onload , onclick , onchange
+<body onload="createPara(5)" id="parent">
+
+event handler: perform tasks when action fires
+-------------------------
+how to add evenrts using JS:
+
+let btn = document.getElementsByClassName('btn')
+btn[0].onclick = createPara
+
+btn[0].onclick = createPara
+
+with param:
+
+let btn = document.getElementsByClassName('btn')
+btn[0].onclick = function () {
+    createPara(4)
+}
+
+--------------------------------------------------
+Event listeners: will observe events and if sepcif event is match the execution statrs
+
+let btn = document.getElementsByClassName('btn')
+btn[0].addEventListener('click',createPara)
+
+diff b/w handler and lister
+
+with event handler:u can add only one event
+with    lister: u can add same event multiple times:
+
+            Event probagation: way of defining the event order (in out or out -in ) 
+            addEventListener('click',createPara)
+                1.Bubbling:
+                by default
+                innerelemt to outer element
+                if no third param then bubble will happen or if u send false
+                
+                2.capture : true u have to pass as 3rd arg
+                it out to in 
+
+
+links:
+https://www.w3schools.com/js/js_htmldom_events.asp
+https://www.w3schools.com/js/js_htmldom_events.asp
