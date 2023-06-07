@@ -1,0 +1,91 @@
+
+Agenda:
+
+JSON - Javascript Object Notation
+
+data format b/2 server and client 
+
+-JSON strings
+
+JS object
+{
+    name:'raju'
+}
+
+JSON object- JSON strings
+
+'{
+  'name':'raju'
+}'
+
+
+
+//json declaration:
+const abc ='{"name":"raju","age":23,"m1":99,"m2":99,"m3":99}';
+
+// parse () WILL convert JSON to js object 
+//how to parse this into proper js obejct
+const parsedVal = JSON.parse(abc)
+console.log(parsedVal.name);
+//How u generate json using JS obejct
+
+const jsobj = {
+  stuname:'dwdwd',
+  city:'mumbai'
+}
+console.log(jsobj.stuname);
+const convertedjson = JSON.stringify(jsobj)
+
+console.log(convertedjson);
+
+
+
+
+//AJAX - asynchronous Javascript and xml
+
+// from clinet side we can read data from the server and we
+// can display in UI
+
+//you can also use the AJAX to send the data to the server
+
+
+---------------------
+
+
+
+//  new XMLHttpRequest(); --> new XMLHttpRequest object
+// /send() send request to server via browser
+// open() - which server address and what http methoad
+//onload - u can assign a funtiion this will be executed once request is done
+ const req = new XMLHttpRequest();
+//response
+ req.onload = function(){
+ const res = JSON.parse(this.responseText);
+console.log(res)
+displayInUI(res)
+}
+
+
+//Request
+req.open('GET','https://jsonplaceholder.typicode.com/posts');
+req.send();
+
+
+function displayInUI(data){
+  let uidata  = '';
+  data.forEach((element) => {
+    uidata +=  `<div>
+    <p>${element.title}</p>
+    <p>${element.body}</p>
+    </div>
+    `;
+  });
+  document.getElementById('product-box').innerHTML = uidata
+}
+
+// task 
+
+//url - https://jsonplaceholder.typicode.com/albums
+// method - GET
+
+// get the data from server and show in  UI
