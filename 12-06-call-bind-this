@@ -1,0 +1,241 @@
+agenda:
+
+assignment discussion:
+-------------------------
+const productData = {
+  "id": "1",
+  "name": "Men Navy Blue Solid Sweatshirt",
+  "preview": "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg",
+  "photos": [
+    "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg",
+    "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/efc3d5b9-1bb3-4427-af53-7acae7af98951541402833591-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-2.jpg",
+    "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/c7e58861-3431-4189-9903-9880f5eebd181541402833566-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-3.jpg",
+    "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/66490b64-32de-44b4-a6e4-fe36f1c040051541402833548-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-4.jpg",
+    "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/957be784-7c5d-4e90-ab9f-0928015b22891541402833645-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-5.jpg"
+  ],
+  "description": "Navy solid sweatshirt with patchwork, has a round neck, long sleeves, straight hem",
+  "size": [
+    1,
+    1,
+    0,
+    1,
+    0
+  ],
+  "isAccessory": false,
+  "brand": "United Colors of Benetton",
+  "price": 2599
+}
+
+
+updatedPreview1sttime();
+
+showOtherImages();
+
+function updatedPreview1sttime(){
+  document.getElementById('main-image').src = productData.preview;
+  
+}
+
+function showOtherImages(){
+  productData.photos.forEach(function(val,index){
+    //div
+    const imgWrapper = document.createElement('div');
+    imgWrapper.classList.add('subimg-holder')
+
+    // add event to the other-imgs
+
+    imgWrapper.onclick = function(){
+      updatedMainImage(index)      
+    }
+
+    //this adding class of border only for 1st img
+    if(index === 0){
+      imgWrapper.classList.add('border')
+    }
+    const imgTag = document.createElement('img');
+    imgTag.src = val;
+    imgTag.classList.add('image-wrapper');
+    imgWrapper.appendChild(imgTag);
+    document.getElementById('img-cont').appendChild(imgWrapper);
+  })
+}
+
+
+
+function updatedMainImage(index){
+  document.getElementById('main-image').src = productData.photos[index];
+
+  //get the other preview images
+
+  const otherImgs = document.getElementsByClassName('subimg-holder');
+  
+  for (let i = 0; i < otherImgs.length; i++){
+    otherImgs[i].classList.remove('border');
+  }
+
+  // add for actully slected image
+
+  otherImgs[index].classList.add('border');
+}
+
+THIS:
+
+
+
+-- generally this refer object 
+-- this reefer currently calling object / window
+
+
+
+//1. Global context it refers window object
+console.log(this)
+
+// 2. function context
+    // a . simple function  call-  it refers window object
+
+function sum(){
+
+console.log('simple function', this)
+
+console.log('simple function', this)
+}
+
+sum();
+  // b.Method invocation - its a simple from whom function gets called
+
+const student = {
+  name: 'raju',
+  age:23,
+  showage: function(a,d){
+    console.log(this.age);
+  },
+  showName:function  (){
+    // this refers student object
+    const innerFun = () => {
+      console.log('this in arrow ',this.name);
+    }
+    innerFun()
+  }
+}
+
+const newstu ={
+  name: 'kumar'
+}
+
+student.showName();
+
+
+ARROW FUNCTION THIS :
+----------------------------------------------------------------
+
+// In a arrow functions : this refers always point to window object
+// it will not create a own(automatic) binding line other function declaration
+
+// let sumof2 = () => {
+//   console.log('sumof2',this);
+// }
+
+// sumof2.call()
+
+
+// student.showage(12,12);
+
+// here it points to stdent object
+const student = {
+  name: 'raju',
+  age:23,
+  showage: function(a,d){
+    console.log(this.age);
+  },
+  showName:function  (){  
+    // this refers student object
+
+    console.log('this in arrow ',this.name);
+    // const innerFun = () => {
+    //   console.log('this in arrow ',this.name);
+    // }
+    // innerFun()
+  }
+}
+
+
+
+// here it points to stdent object
+const student1 = {
+  name: 'raju',
+  age:23,
+  showage: function(a,d){
+    console.log(this.age);
+  },
+  showName:  () => {  
+    // this refers student object
+
+    console.log('this in arrow ',this.name);
+    // const innerFun = () => {
+    //   console.log('this in arrow ',this.name);
+    // }
+    // innerFun()
+  }
+}
+
+
+student1.showName();//  itw points to window
+
+
+// here it points to stdent object
+const student2 = {
+  name: 'raju',
+  age:23,
+  showage: function(a,d){
+    console.log(this.age);
+  },
+  showName: function () {  
+    // this refers student object
+    const innerFun = () => {
+      console.log('this in arrow  ',this.name);
+    }
+    innerFun()
+  }
+}
+
+
+student2.showName();// raju
+
+ CALL BIND APPLY :
+
+
+//CALL, BIND, APPLY :
+
+const student = {
+  fname: 'Raj',
+  lname:'Kumar',
+  showName:function(a,b){
+    console.log(this.fname,a,b);
+  }
+}
+
+const s2 ={
+  fname: 'manoj',
+  lname:'das',
+}
+
+
+const s3 ={
+  fname: 'ragav',
+  lname:'das',
+}
+
+student.showName(1,2) ; //Raj
+//CALL - arguements passed by ,
+student.showName.call(s2,1,2) ; //Manoj
+//apply - arguements passed inside array 
+student.showName.apply(s2,[1,2]) ; 
+
+//bind  will not be called immediately 
+const uselaptops3 = student.showName.bind(s3);
+
+const uselaptops2 = student.showName.bind(s2);
+// u chave to call binded variable
+uselaptops3(1,2);
+uselaptops3(3 , 4);
+uselaptops2(223,444);
