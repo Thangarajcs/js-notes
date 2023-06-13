@@ -1,0 +1,136 @@
+agenda: 
+
+OOP: in js: Object oriented programming
+
+js is not a OOPS oriented programming language like c++
+
+but we can use OOPS concepts:
+
+ES6 version in js we got more power to OOPS:
+
+OBJECT:
+//OBJECT
+const user = {
+  name:'Raju',
+  usname:'user',
+  pwd:'1234',
+  login:function(u,p){
+    if(u === this.usname && p === this.pwd){
+      console.log('Sucessfully logged in')
+    }else{
+      console.log('Failed to login')
+    }
+  }
+}
+
+user.login('wddw','222');
+user.login('user','1234');
+
+CLASS: es6
+
+class Book {
+    constructor(){
+        this.name = "Book";
+    }
+}
+
+//declaration 
+class student {
+  constructor(inputname, age,s1,s2,s3){
+      this.name = inputname;
+      this.age = age,
+      this.s1 = s1,
+      this.s2 = s2,
+      this.s3 = s3
+  }
+
+    display(){
+      console.log(this.s1 + this.s2 + this.s3)
+    }
+
+}
+
+//I m creating new object instance for a class 
+const S4 = new student('RAJA',18);
+
+
+//declaration 
+class student {
+  constructor(inputname, age,s1,s2,s3){
+      this.name = inputname;
+      this.age = age,
+      this.s1 = s1,
+      this.s2 = s2,
+      this.s3 = s3
+  }
+
+    display(){
+      console.log('I m from super class')
+    }
+
+}
+
+class student1 extends student {
+  constructor(inputname,city,age){
+     super(inputname,age);
+    this.city = city;
+  }
+
+    show(){
+      console.log(this.age + ' ' +this.city)
+    }
+}
+
+//I m creating new object instance for a class 
+const S4 = new student1('kumaran','mumbai',23);
+
+
+console.log(S4.display())
+
+
+console.log(S4.age)
+
+
+
+-------------
+
+Encapsulation:
+
+hiding information or data :
+//Encapsulation
+const Book = function(t, a){
+  let title = t;
+  let author = a;
+
+  return {
+    showDetail : function(){
+      console.log(title, '---->', author);
+    }
+  }
+}
+
+const BookDetail = new Book('Maths','John');
+const BookDetail1 = new Book('science','kumar');
+
+console.log(BookDetail1.showDetail());
+
+
+Abstraction:
+--------------
+hiding the implementation details itself called abstraction
+
+const Book = function(titles, author){
+
+}
+
+
+
+resourced information:
+
+
+https://betterprogramming.pub/object-oriented-programming-in-javascript-b3bda28d3e81
+https://www.simplilearn.com/tutorials/javascript-tutorial/oop-in-javascript
+
+https://github.com/Thangarajcs/js-notes/blob/main/1680523006597.pdf
+https://www.youtube.com/@NetNinja
+https://www.youtube.com/@TraversyMedia
