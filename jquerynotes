@@ -1,0 +1,164 @@
+Agenda:
+
+javascript - its a programming language
+Intro to jQuery:
+JQuery: 
+        jQuery is javascript library    
+        it simplifies the javascript language usage.
+
+- "write less, do more"
+
+- features:
+    HTML DOM manipulation
+    css manipulation
+    events manipulation
+    AJAX handling
+    animation , other utilities.
+
+How to add jQuery into ur project:
+
+jQuery CDN:
+Include the CDN link in the head tag
+https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js
+
+syntax:
+
+
+Selectors and Filters:
+
+$(<<taget ele/class/id>>).action()
+
+$().hide();
+
+event:
+
+$('.b2').dblclick(function(){
+  $('.jq').hide()
+})
+
+$('.txt').keypress(function(){
+  $('.jq').show()
+})
+
+
+Add/Update/Delete HTML Elements:
+
+
+// 
+//js
+//document.getElementsByClassName('jq')[0].style.display = 'none';
+
+//selector
+//$('.jq').hide()
+//event
+// $('.b1').click(function(){
+//   $('.jq').hide()
+// })
+
+
+// $('.b2').dblclick(function(){
+//   $('.jq').hide()
+// })
+
+// $('.txt').keypress(function(){
+//   $('.jq').show()
+// })
+
+//eq(1) - to traverse the array 
+
+
+//jQuery GET
+
+//text()
+$('.b1').click(function(){
+  console.log($('p').eq(1).text())
+})
+
+
+//html()
+$('.b1').click(function(){
+  console.log($('p').eq(2).html())
+})
+
+$('.b1').click(function(){
+  console.log($('p').eq(1).attr('myname'))
+})
+
+$('.news').text(function(){
+  return 'HELLOW THIS IS NEWS'
+})
+
+
+$('.b1').click(function(){
+  console.log($('p').eq(1).attr('myname1','this done now'))
+})
+
+//create a new element
+//jQuery SET
+const divtag = document.createElement('div');
+divtag.innerHTML = 'this a javascript way';
+document.body.appendChild(divtag);
+
+//jquery
+//append
+//after()
+//before()
+const mydiv = $('<div></div>').text('this a jquery way');
+$('.news').after(mydiv);
+
+//jQuery remove
+//remove()
+//empty()
+
+
+
+// $('.b5').click(function(){
+//   $('#div1').remove();
+//   //$('#div1').empty();
+// })
+
+//How to add class
+//addClass
+$('#div1').addClass('hey 1st 2nd 3rd')
+//removeClass
+$('#div1').removeClass('3rd')
+
+//css
+
+// $('#div1').css('background-color','green')
+// $('#div1').css('font-size','3px')
+
+$('#div1').css({
+  'background-color':'green',
+  'font-size':'13px'
+})
+
+//AJAX
+//load()
+// $('#div1').load('https://jsonplaceholder.typicode.com/todos/1',function(res,sts,xhr){
+// console.log(res)
+// })
+
+
+const httpreq = new XMLHttpRequest();
+
+httpreq.open('GET','https://jsonplaceholder.typicode.com/todos/1')
+httpreq.send();
+httpreq.onload = function(){
+  console.log('old way',this.responseText)
+}
+//--------------------------------------
+
+$('.b5').click(function(){
+  $.ajax(
+    {
+      url:'https://jsonplaceholder.typicode.com/todos/1',
+      success:function(result){
+      $('#div1').text(result.title);
+      }
+    }
+  )
+})
+
+
+
