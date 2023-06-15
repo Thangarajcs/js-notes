@@ -1,0 +1,183 @@
+Agenda:
+
+More Jquery validations:
+
+REGEX: regular expression
+
+its a sequnce of characters that create a patter
+
+its can be lated used to validate the input 
+
+syntax:
+
+modifiers: it tells u whether patter should be case insensitive or global or 
+multiple match
+
+/yrpatter/modifiers
+
+
+example:
+
+const p1 = /ra/;
+
+const inp = 'abcg ddd raddd';
+
+p1.test(inp);
+
+const p1 = /[3-5]/g;
+
+const inp = "123456789"
+
+console.log(inp.match(p1))
+
+
+const strpatter = /raj/;
+const inptstr = 'vfvuwfvuw raj';
+
+strpatter.test(inptstr)
+
+//find only digits
+//DIGIT
+const p2 = /\d/g;
+//NON-DIGIT
+const p3 = /\D/g;
+
+const inp1 = "1 deee e3e 2345 fffff6789"
+
+console.log(inp1.match(p3))
+
+
+FORM VALIDATION:
+
+
+
+
+$(document).ready(function() {
+
+
+  $('#first_form').submit(function(e){
+      e.preventDefault();
+      let fn = $('#first_name').val();
+      let ln = $('#last_name').val();
+      let email = $('#email').val();
+      let pwd = $('#password').val();
+     
+      // if(fn.match(/\d/g)){
+      //   console.log('u have numbers in the char')
+      // }
+      
+     
+      if(fn.length=== 0 || fn === null) {
+
+        $('#first_name').before('<span class="error"> First name error</span>');
+      }
+
+      console.log(fn, ln, email, pwd);
+  })
+
+
+
+
+
+
+});
+
+link: https://html.form.guide/jquery/validation-using-jquery-examples/
+
+
+Asynchronous JS:
+https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif
+https://dev.to/nodedoctors/an-animated-guide-to-nodejs-event-loop-3g62
+synchronous:
+
+1.getup
+2.freshup
+3.cooking
+4.breakfast
+5.clg/wrk
+
+
+
+
+//synchronze
+// let a = 100;
+// console.log(a);
+// console.log('2');
+
+//async
+
+//call back()
+function bath(){
+
+setTimeout(() =>{
+  console.log('bath');
+  cook()
+},1000)
+
+}
+
+function cook(){
+  setTimeout(()=>{
+    console.log('cook');
+    finalstep()
+  },2000)
+}
+
+function finalstep(){
+  console.log('dresss');
+console.log('go to bus');
+}
+
+//call back 
+// running asyc task one by one 
+
+function morRoutine(){
+  console.log('1');
+  bath()
+}
+// morRoutine()
+
+
+
+
+
+function callBack(callfn){
+  console.log('start')
+  callfn()
+}
+
+callBack(()=>{
+  setTimeout(()=>{
+    console.log('read');
+    console.log('end')
+  },1000)
+  abc(()=>{
+    setTimeout(()=>{
+      console.log('read');
+      console.log('end')
+    },1000)
+    abc()
+  })
+})
+
+
+//call back hell happens when u nest too many aync functions one by one
+
+//PROMISE (Async concept)
+// to recuse the call back hell and neatly execute task we got new
+// js feature promise
+
+let mypromise = new Promise(function(resolve, reject){
+
+         
+          resolve('success')
+        
+})
+
+mypromise.then(function(res){
+  console.log(res)
+},
+(err) =>{
+  console.log(err)
+}
+)
