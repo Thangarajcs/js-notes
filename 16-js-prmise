@@ -1,0 +1,169 @@
+Agenda:
+
+callback:
+call back hell
+promise
+
+
+// console.log('wake up')
+// setTimeout(function(){
+//   console.log(`bath`)
+//   },4000)
+// setTimeout(function(){
+// console.log(`cooking`)
+// },2000)
+// console.log('eat')
+
+function executor(timing, cb){
+  setTimeout(function(){
+    console.log('each task time -', timing)
+    cb()
+    },timing)
+}
+
+
+//call back
+
+//call hell
+executor(1000,function(){
+  console.log('wake')
+   executor(4000,function(){
+    console.log('bath')
+     executor(3000,function(){
+      console.log('cook')
+       executor(1000,function(){
+  console.log('end')
+      }, executor(1000,function(){
+        console.log('end')
+            }), executor(1000,function(){
+              console.log('end')
+                  }), executor(1000,function(){
+                    console.log('end')
+                        }))
+    })
+  })
+})
+
+
+// 1.pending -(when esxecution happens and if u try to acesss the promise)
+// 2. fulfilled - success status
+// 3 .rejeted - error status
+
+// let momPromise = (ismomHappy) => {
+//   return new Promise(function(resolve, reject){
+//     if(ismomHappy){
+//       setTimeout(function(){
+//         resolve('Yes I got a new phone from son')
+//       },2000)
+//     } else{
+//       reject('No I didnot get due to some problem')
+//     }
+//   })
+// }
+
+
+
+// momPromise(true).then(function(res){
+//   console.log(res);
+// },function(err){
+//   console.log(err);
+// })
+
+
+// console.log('wake up')
+// setTimeout(function(){
+//   console.log(`bath`)
+//   },4000)
+// setTimeout(function(){
+// console.log(`cooking`)
+// },2000)
+// console.log('eat')
+
+function executor(timing, cb){
+  setTimeout(function(){
+    console.log('each task time -', timing)
+    cb()
+    },timing)
+}
+
+
+//call back
+
+
+
+//PROMISE - Either return suceess or error
+//Make asynchronous code to synchronous through promises
+
+//execution status
+// 1.pending -(when esxecution happens and if u try to acesss the promise)
+// 2. fulfilled - success status
+// 3 .rejeted - error status
+
+function firstTask(){
+  return new Promise(function(resolve, reject){
+    setTimeout(function(){
+   
+      console.log('firstTask')
+      reject('done 1')
+      },2000)
+  })
+}
+
+function secondTask(){
+  return new Promise(function(resolve, reject){
+    setTimeout(function(){
+      console.log('secondTask')
+      resolve('done 3')
+      },1000)
+  })
+}
+
+function thirdTask(){
+  return new Promise(function(resolve, reject){
+    setTimeout(function(){
+      console.log('thirdTask')
+      resolve('done ')
+      },500)
+  })
+}
+
+
+
+// firstTask()
+// .then( success , error )
+// .then(()=> thirdTask() )
+
+
+//------
+//closure
+
+// closure means a funtion that will have a context of its created place
+
+// closure means a return funtion will have access to its lexical context
+const incremnet = function (){
+  let a = 1;
+  let b = 'hello'
+  
+  return function(){
+    a +=1;
+    console.log(a)
+    console.log(b)
+  }
+}
+let excuter = incremnet();
+
+excuter();
+excuter();
+excuter();
+excuter();
+excuter();
+excuter();
+excuter();
+excuter();
+excuter();
+
+
+
+
+
+
